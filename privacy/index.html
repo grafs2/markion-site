@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Markion – Privacy Policy / Datenschutzerklärung</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #ffffff;
+        --text: #1d2129;
+        --muted: #5b6372;
+        --border: #e3e6eb;
+        --accent: #0a7f99;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #07080c;
+          --text: #eaf0ff;
+          --muted: #8d97b5;
+          --border: rgba(255, 255, 255, 0.1);
+          --accent: #38e8ff;
+        }
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font:
+          16px/1.65 'Segoe UI',
+          system-ui,
+          -apple-system,
+          sans-serif;
+      }
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 48px 20px 80px;
+      }
+      h1 {
+        margin: 0 0 4px;
+        font-size: 28px;
+        line-height: 1.25;
+      }
+      h2 {
+        margin: 40px 0 8px;
+        font-size: 19px;
+      }
+      .meta {
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .lang {
+        margin-top: 64px;
+        padding-top: 32px;
+        border-top: 1px solid var(--border);
+      }
+      a {
+        color: var(--accent);
+      }
+      li {
+        margin: 4px 0;
+      }
+      code {
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article lang="en">
+        <h1>Privacy Policy for Markion</h1>
+        <p class="meta">
+          Last updated: October 3, 2026 · <a href="#de">Deutsche Version weiter unten</a>
+        </p>
+        <p>
+          Markion is a Google Chrome extension for finding, organizing and cleaning up your
+          bookmarks. It replaces Chrome's bookmark manager. This policy explains which data the
+          extension processes.
+        </p>
+
+        <h2>Summary</h2>
+        <p>
+          Markion does not collect any personal data. There are no user accounts, no analytics or
+          tracking, no advertising and no developer servers. Everything Markion does happens in your
+          browser. By default, Markion makes no network requests at all.
+        </p>
+
+        <h2>Your bookmarks</h2>
+        <p>
+          Markion reads and changes your bookmarks through Chrome's bookmarks interface, only when
+          you take an action. The bookmarks themselves stay in Chrome. If you use Chrome sync,
+          Chrome syncs them as usual; Markion adds nothing to that.
+        </p>
+
+        <h2>Data stored locally</h2>
+        <p>Markion keeps the following on your device only:</p>
+        <ul>
+          <li>
+            settings, pinned folders, your inbox and archive folder and view preferences
+            (<code>chrome.storage.local</code>),
+          </li>
+          <li>
+            for each bookmark: how often and when you opened it through Markion, and your “keep”
+            decisions from the cleanup review,
+          </li>
+          <li>the trash with deleted bookmarks (30 days by default, adjustable),</li>
+          <li>
+            restore points: compressed copies of your bookmark tree, taken before large changes and
+            regularly when something has changed,
+          </li>
+          <li>the undo history,</li>
+          <li>results of the optional link check (see below),</li>
+          <li>a cached copy of the bookmark tree so the window opens faster.</li>
+        </ul>
+        <p>
+          This data never leaves your browser. It is not sent to the developer or to anyone else,
+          and it is not synced through your Google account.
+        </p>
+
+        <h2>Optional features</h2>
+        <ul>
+          <li>
+            <strong>Browsing history</strong> (permission <code>history</code>, only if you turn it
+            on): Markion reads when you last visited your bookmarked pages to judge which bookmarks
+            you still use. This happens locally; the history is not copied or sent anywhere.
+          </li>
+          <li>
+            <strong>Link check</strong> (access to all websites, only if you turn it on): Markion
+            sends one short request to each saved page to find dead links and redirects, without
+            cookies and without a referrer, at most five at a time. As with any web request, the
+            website sees your IP address. Without your consent, Markion sends no such request.
+          </li>
+        </ul>
+        <p>Both can be turned off at any time in Markion's settings.</p>
+
+        <h2>Links to outside pages</h2>
+        <p>
+          Website icons come from Chrome's own local cache. The links “Privacy policy” and “Support
+          Markion” in the settings open a web page in a new tab, only when you click them. The
+          donation page is run by Stripe; if you donate, Stripe's privacy policy applies to the
+          payment.
+        </p>
+
+        <h2>Permissions</h2>
+        <ul>
+          <li><code>bookmarks</code>: show, search and change your bookmarks.</li>
+          <li>
+            <code>storage</code>, <code>unlimitedStorage</code>: the local data listed above,
+            including restore points for large collections.
+          </li>
+          <li><code>favicon</code>: show website icons from Chrome's local cache.</li>
+          <li>
+            <code>alarms</code>: local maintenance every few hours (restore points, emptying the
+            trash).
+          </li>
+          <li><code>history</code> (optional): see “Optional features”.</li>
+          <li>Access to all websites (optional): only for the link check.</li>
+        </ul>
+
+        <h2>Deleting data</h2>
+        <p>
+          You can empty the trash in Markion at any time; restore points are deleted automatically
+          after 14 days (the newest one is kept). Uninstalling the extension makes Chrome delete all
+          Markion data; your bookmarks remain in Chrome. Optional permissions can be revoked at any
+          time under <code>chrome://extensions</code> → Markion → Details.
+        </p>
+
+        <h2>Changes</h2>
+        <p>If this policy changes, the new version is published on this page with a new date.</p>
+
+        <h2>Contact</h2>
+        <p>Privacy questions: <a href="mailto:stevesoft@gmx.net">stevesoft@gmx.net</a></p>
+      </article>
+
+      <article lang="de" id="de" class="lang">
+        <h1>Datenschutzerklärung für Markion</h1>
+        <p class="meta">Stand: 3. Oktober 2026</p>
+        <p>
+          Markion ist eine Erweiterung für Google Chrome, mit der du Lesezeichen findest, ordnest
+          und aufräumst. Sie ersetzt Chromes Lesezeichen-Manager. Diese Erklärung beschreibt, welche
+          Daten die Erweiterung verarbeitet.
+        </p>
+
+        <h2>Kurzfassung</h2>
+        <p>
+          Markion sammelt keine personenbezogenen Daten. Es gibt keine Benutzerkonten, keine Analyse
+          und kein Tracking, keine Werbung und keine Server des Entwicklers. Alles, was Markion tut,
+          passiert in deinem Browser. Ohne deine Zustimmung stellt Markion keine einzige Anfrage ins
+          Netz.
+        </p>
+
+        <h2>Deine Lesezeichen</h2>
+        <p>
+          Markion liest und ändert deine Lesezeichen über Chromes Lesezeichen-Schnittstelle, und
+          nur, wenn du eine Aktion auslöst. Die Lesezeichen selbst bleiben in Chrome. Nutzt du die
+          Chrome-Synchronisierung, synchronisiert Chrome sie wie gewohnt; Markion fügt dem nichts
+          hinzu.
+        </p>
+
+        <h2>Welche Daten lokal gespeichert werden</h2>
+        <p>Nur auf deinem Gerät speichert Markion:</p>
+        <ul>
+          <li>
+            Einstellungen, fixierte Ordner, Eingangs- und Archivordner und Ansichtsoptionen
+            (<code>chrome.storage.local</code>),
+          </li>
+          <li>
+            je Lesezeichen, wie oft und wann du es über Markion geöffnet hast, und deine
+            „Behalten“-Entscheidungen aus dem Aufräumen,
+          </li>
+          <li>den Papierkorb mit gelöschten Lesezeichen (Standard 30 Tage, einstellbar),</li>
+          <li>
+            Sicherungspunkte: komprimierte Kopien deines Lesezeichenbaums vor großen Änderungen und
+            regelmäßig, wenn sich etwas geändert hat,
+          </li>
+          <li>den Verlauf für „Rückgängig“,</li>
+          <li>Ergebnisse des optionalen Link-Checks (siehe unten),</li>
+          <li>eine zwischengespeicherte Kopie des Lesezeichenbaums für einen schnelleren Start.</li>
+        </ul>
+        <p>
+          Diese Daten verlassen deinen Browser nicht. Sie werden weder an den Entwickler noch an
+          Dritte übermittelt und nicht über dein Google-Konto synchronisiert.
+        </p>
+
+        <h2>Optionale Funktionen</h2>
+        <ul>
+          <li>
+            <strong>Browserverlauf</strong> (Berechtigung <code>history</code>, nur wenn du sie
+            einschaltest): Markion liest, wann du die gespeicherten Seiten zuletzt besucht hast, um
+            einzuschätzen, welche Lesezeichen du noch nutzt. Das geschieht lokal; der Verlauf wird
+            weder kopiert noch übertragen.
+          </li>
+          <li>
+            <strong>Link-Check</strong> (Zugriff auf alle Websites, nur wenn du ihn einschaltest):
+            Markion fragt jede gespeicherte Seite einmal kurz an, um tote Links und Weiterleitungen
+            zu finden, ohne Cookies und ohne Referer, höchstens fünf gleichzeitig. Wie bei jedem
+            Seitenaufruf sieht die Website deine IP-Adresse. Ohne deine Zustimmung sendet Markion
+            keine solche Anfrage.
+          </li>
+        </ul>
+        <p>Beides lässt sich in den Einstellungen von Markion jederzeit ausschalten.</p>
+
+        <h2>Links zu externen Seiten</h2>
+        <p>
+          Website-Symbole stammen aus dem lokalen Zwischenspeicher von Chrome. Die Links
+          „Datenschutzerklärung“ und „Markion unterstützen“ in den Einstellungen öffnen eine
+          Webseite in einem neuen Tab, und zwar erst auf Klick. Die Spendenseite betreibt Stripe;
+          spendest du, gilt für die Zahlung die Datenschutzerklärung von Stripe.
+        </p>
+
+        <h2>Berechtigungen</h2>
+        <ul>
+          <li><code>bookmarks</code>: Lesezeichen anzeigen, durchsuchen und ändern.</li>
+          <li>
+            <code>storage</code>, <code>unlimitedStorage</code>: die oben genannten lokalen Daten,
+            auch Sicherungspunkte großer Sammlungen.
+          </li>
+          <li>
+            <code>favicon</code>: Website-Symbole aus dem lokalen Zwischenspeicher von Chrome.
+          </li>
+          <li>
+            <code>alarms</code>: lokale Wartung alle paar Stunden (Sicherungspunkte, Papierkorb
+            leeren).
+          </li>
+          <li><code>history</code> (optional): siehe „Optionale Funktionen“.</li>
+          <li>Zugriff auf alle Websites (optional): nur für den Link-Check.</li>
+        </ul>
+
+        <h2>Löschen der Daten</h2>
+        <p>
+          Den Papierkorb kannst du in Markion jederzeit leeren; Sicherungspunkte löscht Markion nach
+          14 Tagen selbst (der neueste bleibt erhalten). Beim Deinstallieren der Erweiterung löscht
+          Chrome alle Daten von Markion; deine Lesezeichen bleiben in Chrome erhalten. Optionale
+          Berechtigungen kannst du jederzeit unter
+          <code>chrome://extensions</code> → Markion → Details entziehen.
+        </p>
+
+        <h2>Änderungen</h2>
+        <p>Ändert sich diese Erklärung, steht die neue Fassung mit neuem Datum auf dieser Seite.</p>
+
+        <h2>Kontakt</h2>
+        <p>Fragen zum Datenschutz: <a href="mailto:stevesoft@gmx.net">stevesoft@gmx.net</a></p>
+      </article>
+    </main>
+  </body>
+</html>
