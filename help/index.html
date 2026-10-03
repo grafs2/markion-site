@@ -1,0 +1,1176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Markion – User Guide</title>
+    <meta
+      name="description"
+      content="How to use Markion, the fast, local bookmark manager for Chrome: search, organize, clean up and keep your bookmarks in order."
+    />
+    <!--
+      Quelle der Anleitung (S1-02). Veröffentlicht als help/index.html im Repo grafs2/markion-site,
+      Bilder unter help/img/ (aus docs/store/shots/en und docs/store/shots/en/guide).
+      Bei jeder Shortcut-Änderung die Tabelle „Keyboard shortcuts“ nachziehen (siehe CLAUDE.md).
+    -->
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg-0: #07080c;
+        --bg-1: #0d0f16;
+        --surface: rgba(255, 255, 255, 0.04);
+        --border: rgba(255, 255, 255, 0.08);
+        --text-1: #eaf0ff;
+        --text-2: #8d97b5;
+        --accent: #38e8ff;
+        --accent-2: #8b5cff;
+        --warning: #ffc24b;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+      body {
+        margin: 0;
+        background:
+          radial-gradient(70rem 46rem at 0% 0%, rgba(139, 92, 255, 0.08), transparent 70%),
+          radial-gradient(70rem 46rem at 100% 100%, rgba(56, 232, 255, 0.05), transparent 70%),
+          var(--bg-0);
+        color: var(--text-1);
+        font:
+          16px/1.65 'Segoe UI',
+          system-ui,
+          -apple-system,
+          sans-serif;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: 240px minmax(0, 1fr);
+        gap: 48px;
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 40px 24px 96px;
+      }
+      nav.toc {
+        position: sticky;
+        top: 24px;
+        align-self: start;
+        font-size: 14px;
+      }
+      nav.toc ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      nav.toc a {
+        display: block;
+        padding: 4px 10px;
+        border-radius: 8px;
+        color: var(--text-2);
+        text-decoration: none;
+      }
+      nav.toc a:hover {
+        background: var(--surface);
+        color: var(--text-1);
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+        font-weight: 600;
+        font-size: 18px;
+      }
+      main {
+        min-width: 0;
+        max-width: 780px;
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 34px;
+        line-height: 1.2;
+      }
+      h2 {
+        margin: 64px 0 12px;
+        padding-top: 8px;
+        font-size: 24px;
+        line-height: 1.3;
+        scroll-margin-top: 16px;
+      }
+      h3 {
+        margin: 32px 0 8px;
+        font-size: 18px;
+        scroll-margin-top: 16px;
+      }
+      p,
+      li {
+        color: rgba(234, 240, 255, 0.92);
+      }
+      .lead {
+        color: var(--text-2);
+        font-size: 18px;
+      }
+      a {
+        color: var(--accent);
+      }
+      a:focus-visible,
+      nav.toc a:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+      kbd,
+      code {
+        font-family: 'JetBrains Mono', Consolas, 'Cascadia Mono', monospace;
+        font-size: 13px;
+      }
+      kbd {
+        display: inline-block;
+        min-width: 20px;
+        padding: 1px 6px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 5px;
+        color: var(--text-1);
+        text-align: center;
+        white-space: nowrap;
+      }
+      code {
+        padding: 1px 5px;
+        border-radius: 5px;
+        background: var(--surface);
+        color: var(--accent);
+      }
+      figure {
+        margin: 20px 0 28px;
+      }
+      figure img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+      }
+      figure.small img {
+        width: auto;
+        max-width: 100%;
+      }
+      figcaption {
+        margin-top: 8px;
+        color: var(--text-2);
+        font-size: 14px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0 20px;
+        font-size: 15px;
+      }
+      th,
+      td {
+        padding: 7px 10px;
+        border-bottom: 1px solid var(--border);
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        color: var(--text-2);
+        font-weight: 500;
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      td:first-child {
+        white-space: nowrap;
+      }
+      .note {
+        margin: 20px 0;
+        padding: 14px 18px;
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--accent);
+        border-radius: 10px;
+        background: var(--surface);
+      }
+      .note p {
+        margin: 0;
+      }
+      footer {
+        margin-top: 80px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+        color: var(--text-2);
+        font-size: 14px;
+      }
+      @media (max-width: 900px) {
+        .layout {
+          grid-template-columns: 1fr;
+          gap: 8px;
+          padding-top: 24px;
+        }
+        nav.toc {
+          position: static;
+        }
+        nav.toc ol {
+          columns: 2;
+        }
+      }
+      @media (forced-colors: active) {
+        kbd,
+        code,
+        figure img,
+        .note {
+          border: 1px solid CanvasText;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <nav class="toc" aria-label="Contents">
+        <div class="brand">
+          <svg width="18" height="20" viewBox="0 0 18 20" aria-hidden="true">
+            <defs>
+              <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#38E8FF" />
+                <stop offset="1" stop-color="#8B5CFF" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M2 2.5A1.5 1.5 0 0 1 3.5 1h11A1.5 1.5 0 0 1 16 2.5V19l-7-4.6L2 19V2.5Z"
+              fill="url(#g)"
+            />
+          </svg>
+          Markion
+        </div>
+        <ol>
+          <li><a href="#getting-started">Getting started</a></li>
+          <li><a href="#layout">The workspace</a></li>
+          <li><a href="#search">Finding bookmarks</a></li>
+          <li><a href="#organize">Organizing</a></li>
+          <li><a href="#inbox">Inbox and sorting assistant</a></li>
+          <li><a href="#cleanup">Cleanup Center</a></li>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#safety">Safety net</a></li>
+          <li><a href="#settings">Settings</a></li>
+          <li><a href="#shortcuts">Keyboard shortcuts</a></li>
+          <li><a href="#privacy">Privacy</a></li>
+          <li><a href="#faq">FAQ and troubleshooting</a></li>
+        </ol>
+      </nav>
+
+      <main>
+        <h1>Markion User Guide</h1>
+        <p class="lead">
+          Markion replaces Chrome’s bookmark manager with a fast, keyboard-first workspace. It helps
+          you find bookmarks in a heartbeat, reorganize them, clean them up without losing anything
+          and keep them in order. Everything runs on your device.
+        </p>
+
+        <h2 id="getting-started">Getting started</h2>
+        <p>
+          After installing, Markion opens instead of <code>chrome://bookmarks</code>. You can also
+          open it with <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd>, through Chrome’s menu
+          “Bookmarks and lists → Bookmark manager”, or with <kbd>Alt</kbd>+<kbd>B</kbd> (you can
+          change this shortcut in Settings). If Markion is already open, it switches to that tab
+          instead of opening a second one.
+        </p>
+        <p>
+          On the first start, a short introduction creates a first restore point, shows how tidy
+          your collection is and lists the most important shortcuts. You can skip it with
+          <kbd>Esc</kbd>.
+        </p>
+        <div class="note">
+          <p>
+            You can open the introduction again any time: click <strong>?</strong> at the top right
+            and choose <strong>Show introduction</strong>, or press <kbd>G</kbd> then <kbd>W</kbd>.
+          </p>
+        </div>
+        <figure>
+          <img
+            src="img/welcome.webp"
+            alt="The introduction screen of Markion"
+            loading="lazy"
+            width="1280"
+            height="800"
+          />
+          <figcaption>The introduction on the first start.</figcaption>
+        </figure>
+        <p>
+          Markion works directly on Chrome’s bookmarks. There is nothing to import and nothing to
+          sync: what you change in Markion is changed in Chrome, and what you change in Chrome shows
+          up in Markion right away. Account bookmarks and device bookmarks appear side by side.
+        </p>
+
+        <h2 id="layout">The workspace</h2>
+        <figure>
+          <img
+            src="img/1-list.webp"
+            alt="Markion with folder tree, list of bookmarks and detail panel"
+            loading="lazy"
+            width="1280"
+            height="800"
+          />
+          <figcaption>
+            Folder tree on the left, list in the middle, details on the right.
+          </figcaption>
+        </figure>
+        <ul>
+          <li>
+            <strong>Top bar</strong>: the path of the current folder, the search field, the
+            <strong>Coffee</strong> button (see <a href="#faq">FAQ</a>), list or card view, sorting,
+            view options (columns, density) and the <strong>?</strong> menu with this guide, the
+            introduction and the shortcut overview.
+          </li>
+          <li>
+            <strong>Left sidebar</strong>: Overview, All bookmarks, Inbox, your folders, and at the
+            bottom the Cleanup Center, Archive, Restore points, Trash and Settings. Drag its edge to
+            change the width.
+          </li>
+          <li>
+            <strong>List or cards</strong>: switch with <kbd>V</kbd>. Sort by title, domain, date
+            added, last use or staleness score; “Chrome order” keeps the order you see in Chrome.
+          </li>
+          <li>
+            <strong>Detail panel</strong>: opens when you select a bookmark. It shows the folder,
+            where it is stored (account or device), dates, how often you opened it through Markion
+            and its staleness score.
+          </li>
+        </ul>
+        <h3 id="sidebar">Collapsed sidebar</h3>
+        <p>
+          Press <kbd>[</kbd> or click the panel icon at the top left to collapse the sidebar. It
+          shrinks to a narrow strip of icons, so you still reach every place with one click. Badges
+          show new items in the inbox and the number of cleanup suggestions. Hover over an icon, or
+          reach it with <kbd>Tab</kbd>, to see its name and shortcut. To see the folder tree again,
+          press <kbd>[</kbd>.
+        </p>
+        <figure>
+          <img
+            src="img/rail.webp"
+            alt="Collapsed sidebar showing only icons, with a tooltip for the Cleanup Center"
+            loading="lazy"
+            width="1280"
+            height="800"
+          />
+          <figcaption>The collapsed sidebar as an icon strip.</figcaption>
+        </figure>
+
+        <h2 id="search">Finding bookmarks</h2>
+        <h3>Filter the list</h3>
+        <p>
+          Press <kbd>/</kbd> to jump into the search field at the top. The list filters as you type.
+          Search is tolerant of small typos and looks at titles, addresses and folder names. Press
+          <kbd>↓</kbd> to move into the results and <kbd>Enter</kbd> to open the first one.
+          <kbd>Esc</kbd> clears the search.
+        </p>
+        <h3 id="search-syntax">Search syntax</h3>
+        <p>
+          Narrow the search with filters written as <code>command:value</code>, without a space
+          after the colon. Click the <strong>ⓘ</strong> icon in the search field to see them all;
+          clicking an example inserts it at the cursor.
+        </p>
+        <figure>
+          <img
+            src="img/search-syntax.webp"
+            alt="The search syntax help opened from the info icon in the search field"
+            loading="lazy"
+            width="1280"
+            height="520"
+          />
+          <figcaption>The search syntax help in the search field.</figcaption>
+        </figure>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Filter</th>
+              <th scope="col">What it does</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>in:Work</code>, <code>in:"My folder"</code></td>
+              <td>Only bookmarks in this folder. Use quotes when the name contains spaces.</td>
+            </tr>
+            <tr>
+              <td><code>site:github.com</code></td>
+              <td>Only this domain; <code>www.</code> is ignored.</td>
+            </tr>
+            <tr>
+              <td>
+                <code>added:&lt;2023</code>, <code>added:2024-05</code>,
+                <code>added:&gt;=2024-05-17</code>
+              </td>
+              <td>
+                By the date added: a year, a month or a day, with <code>&lt;</code>,
+                <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code> or <code>=</code>.
+              </td>
+            </tr>
+            <tr>
+              <td><code>used:&lt;30d</code>, <code>used:&gt;1y</code></td>
+              <td>
+                By last use: within the last 30 days, or more than a year ago. Units are
+                <code>d</code> (days), <code>w</code> (weeks), <code>m</code> (months) and
+                <code>y</code> (years).
+              </td>
+            </tr>
+            <tr>
+              <td><code>is:dup</code></td>
+              <td>Duplicates: the same address is bookmarked more than once.</td>
+            </tr>
+            <tr>
+              <td><code>is:dead</code></td>
+              <td>Dead links, found by the optional link check.</td>
+            </tr>
+            <tr>
+              <td><code>is:never</code></td>
+              <td>Provably never opened.</td>
+            </tr>
+            <tr>
+              <td><code>is:pinned</code></td>
+              <td>Pinned bookmarks and folders.</td>
+            </tr>
+            <tr>
+              <td><code>is:inbox</code></td>
+              <td>Items in the inbox.</td>
+            </tr>
+            <tr>
+              <td><code>"exact phrase"</code></td>
+              <td>Exactly these words in this order.</td>
+            </tr>
+            <tr>
+              <td>
+                <code>-word</code>, <code>-"phrase"</code>, <code>-site:…</code>,
+                <code>-is:dup</code>
+              </td>
+              <td>Exclude a word or phrase; in front of a filter it negates it.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Several words and filters apply together. For example,
+          <code>react site:github.com used:&gt;1y</code> finds GitHub bookmarks about React that you
+          have not used for over a year.
+        </p>
+        <h3 id="palette">Command palette</h3>
+        <p>
+          Press <kbd>Ctrl</kbd>+<kbd>K</kbd> to open the command palette from anywhere. Type a few
+          letters and press <kbd>Enter</kbd> to open the bookmark, or <kbd>Ctrl</kbd>+<kbd
+            >Enter</kbd
+          >
+          to open it in the background. The palette understands the same search syntax and has the
+          same <strong>ⓘ</strong> help.
+        </p>
+        <ul>
+          <li>Start with <kbd>&gt;</kbd> to search actions, for example <code>&gt;trash</code>.</li>
+          <li>Start with <kbd>/</kbd> to search folders only.</li>
+          <li>
+            Press <kbd>Tab</kbd> on a result to see the actions for that bookmark, such as copy,
+            move or edit.
+          </li>
+          <li>The empty palette shows recently used and frequently opened bookmarks.</li>
+        </ul>
+        <figure>
+          <img
+            src="img/2-palette.webp"
+            alt="The command palette with search results"
+            loading="lazy"
+            width="1280"
+            height="800"
+          />
+          <figcaption>The command palette.</figcaption>
+        </figure>
+        <h3>Pins</h3>
+        <p>
+          Press <kbd>P</kbd> to pin a bookmark or folder. Pinned items are easy to find with
+          <code>is:pinned</code>, and the Cleanup Center never suggests them.
+        </p>
+
+        <h2 id="organize">Organizing</h2>
+        <h3>Select and move</h3>
+        <ul>
+          <li>
+            Move with <kbd>↑</kbd> <kbd>↓</kbd> (or <kbd>J</kbd> <kbd>K</kbd>). Extend the selection
+            with <kbd>Shift</kbd>+<kbd>↑</kbd>/<kbd>↓</kbd>, toggle an item with <kbd>Space</kbd>,
+            select everything with <kbd>Ctrl</kbd>+<kbd>A</kbd>. With the mouse, use
+            <kbd>Ctrl</kbd>-click and <kbd>Shift</kbd>-click.
+          </li>
+          <li>
+            <strong>Drag and drop</strong> items onto a folder in the tree or in the list. Hovering
+            over a closed folder opens it after a moment. <kbd>Esc</kbd> cancels the drag.
+          </li>
+          <li>
+            Press <kbd>M</kbd> to move the selection with the palette: type a folder name and press
+            <kbd>Enter</kbd>.
+          </li>
+          <li>
+            <kbd>Ctrl</kbd>+<kbd>X</kbd> and <kbd>Ctrl</kbd>+<kbd>V</kbd> cut and paste.
+            <kbd>Alt</kbd>+<kbd>↑</kbd>/<kbd>↓</kbd> moves an item up or down within its folder.
+          </li>
+          <li>
+            Right-click (or <kbd>Shift</kbd>+<kbd>F10</kbd>) opens the context menu with every
+            action.
+          </li>
+        </ul>
+        <h3>Edit and create</h3>
+        <ul>
+          <li><kbd>F2</kbd> renames a bookmark or folder or edits its address.</li>
+          <li>
+            <kbd>N</kbd> creates a new folder; <kbd>Shift</kbd>+<kbd>N</kbd> creates a folder from
+            the selection.
+          </li>
+          <li>
+            <kbd>Shift</kbd>+<kbd>T</kbd> cleans up titles (for example counters like “(3)” or a
+            repeated site name), <kbd>Shift</kbd>+<kbd>U</kbd> removes tracking parameters from
+            addresses. Both show a before/after preview first.
+          </li>
+        </ul>
+        <h3>Folder tools</h3>
+        <ul>
+          <li>
+            <strong>Sort permanently</strong> (<kbd>Shift</kbd>+<kbd>S</kbd>) sorts a folder in
+            Chrome itself, by title, domain or date. A preview shows the result before anything
+            moves.
+          </li>
+          <li>
+            <strong>Merge folder</strong> (<kbd>Shift</kbd>+<kbd>M</kbd>) moves the contents into
+            another folder; the empty folder goes to the trash.
+          </li>
+          <li>
+            <strong>Dissolve folder</strong> (<kbd>Shift</kbd>+<kbd>D</kbd>) moves the contents one
+            level up.
+          </li>
+          <li><strong>Archive</strong> (<kbd>E</kbd>) moves items into your archive folder.</li>
+        </ul>
+        <p>
+          Every one of these actions can be undone with <kbd>Ctrl</kbd>+<kbd>Z</kbd>. After each
+          action, a message with an <strong>Undo</strong> button stays visible for 8 seconds.
+        </p>
+
+        <h2 id="inbox">Inbox and sorting assistant</h2>
+        <p>
+          The inbox collects bookmarks that still need a place: everything lying loose directly in
+          “Other bookmarks”, plus everything you added since you last marked the inbox as reviewed.
+          Bookmarks in the bookmarks bar, pinned items and the archive never land here. Open it with
+          <kbd>G</kbd> then <kbd>I</kbd>; <kbd>Shift</kbd>+<kbd>I</kbd> marks everything as
+          reviewed.
+        </p>
+        <figure>
+          <img
+            src="img/inbox.webp"
+            alt="The inbox with unsorted bookmarks"
+            loading="lazy"
+            width="1280"
+            height="800"
+          />
+          <figcaption>The inbox.</figcaption>
+        </figure>
+        <p>
+          The <strong>sorting assistant</strong> (<kbd>G</kbd> then <kbd>S</kbd>) goes through the
+          inbox one card at a time and suggests matching folders. The suggestions are computed on
+          your device from the domains and words in your existing folders and your recent choices.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Key</th>
+              <th scope="col">In the sorting assistant</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><kbd>1</kbd>–<kbd>5</kbd></td>
+              <td>File into suggestion 1 to 5</td>
+            </tr>
+            <tr>
+              <td><kbd>/</kbd></td>
+              <td>Find another folder</td>
+            </tr>
+            <tr>
+              <td><kbd>A</kbd></td>
+              <td>Archive</td>
+            </tr>
+            <tr>
+              <td><kbd>D</kbd></td>
+              <td>Move to trash</td>
+            </tr>
+            <tr>
+              <td><kbd>S</kbd></td>
+              <td>Later (skip for now)</td>
+            </tr>
+            <tr>
+              <td><kbd>K</kbd></td>
+              <td>Stays here (it leaves the inbox where it is)</td>
+            </tr>
+            <tr>
+              <td><kbd>Z</kbd></td>
+              <td>Undo the last step</td>
+            </tr>
+            <tr>
+              <td><kbd>Esc</kbd></td>
+              <td>Back</td>
+            </tr>
+          </tbody>
+        </table>
+        <figure>
+          <img
+            src="img/4-assistant.webp"
+            alt="The sorting assistant with folder suggestions"
+            loading="lazy"
+            width="1280"
+            height="800"
+          />
+          <figcaption>The sorting assistant.</figcaption>
+        </figure>
+
+        <h2 id="cleanup">Cleanup Center</h2>
+        <p>
+          The Cleanup Center (<kbd>G</kbd> then <kbd>C</kbd>, or in the sidebar) finds bookmarks
+          that are worth a second look and explains why. Nothing is deleted without you: you decide
+          for each finding, and deleted items go to the trash.
+        </p>
+        <figure>
+          <img
+            src="img/3-cleanup.webp"
+            alt="The Cleanup Center with categories and findings"
+            loading="lazy"
+            width="1280"
+            height="800"
+          />
+          <figcaption>The Cleanup Center.</figcaption>
+        </figure>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Category</th>
+              <th scope="col">What it finds</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Unused</td>
+              <td>
+                Bookmarks with a staleness score of 70 or more: not used for a long time and old.
+              </td>
+            </tr>
+            <tr>
+              <td>Never opened</td>
+              <td>In the profile for over three months and provably never opened.</td>
+            </tr>
+            <tr>
+              <td>Duplicates</td>
+              <td>
+                The same address, ignoring <code>www.</code>, tracking parameters and anchors. The
+                best entry stays, the others go to the trash.
+              </td>
+            </tr>
+            <tr>
+              <td>Similar</td>
+              <td>
+                Nearly identical addresses, such as a mobile version. Never merged automatically.
+              </td>
+            </tr>
+            <tr>
+              <td>Dead links</td>
+              <td>The link check failed on two different days.</td>
+            </tr>
+            <tr>
+              <td>Redirected</td>
+              <td>The page redirected to the same new address on two different days.</td>
+            </tr>
+            <tr>
+              <td>Structure</td>
+              <td>
+                Empty, nearly empty, same-named, very deep or overfull folders, each with a
+                one-click fix.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>The staleness score</h3>
+        <p>
+          Each bookmark gets a score from 0 to 100. It rises the longer you have not used a
+          bookmark, the older it is, and if it was provably never opened. “Last use” combines
+          Chrome’s own record, opens through Markion and, if you allow it, your browser history.
+          When Chrome has not tracked usage long enough to be sure, Markion says so and marks the
+          suggestion as low confidence instead of claiming “never opened”.
+        </p>
+        <h3>Review</h3>
+        <p>
+          Press <kbd>Enter</kbd> on a finding (or click <strong>Start review</strong>) to go through
+          the findings one card at a time.
+        </p>
+        <figure>
+          <img
+            src="img/review.webp"
+            alt="A review card with keep, archive and trash options"
+            loading="lazy"
+            width="1280"
+            height="800"
+          />
+          <figcaption>Reviewing one finding at a time.</figcaption>
+        </figure>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Key</th>
+              <th scope="col">In the review</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><kbd>K</kbd></td>
+              <td>Keep: not suggested again for 6 months (adjustable in Settings)</td>
+            </tr>
+            <tr>
+              <td><kbd>A</kbd></td>
+              <td>Archive</td>
+            </tr>
+            <tr>
+              <td><kbd>D</kbd></td>
+              <td>Move to trash</td>
+            </tr>
+            <tr>
+              <td><kbd>S</kbd></td>
+              <td>Skip</td>
+            </tr>
+            <tr>
+              <td><kbd>O</kbd></td>
+              <td>View the page in a background tab</td>
+            </tr>
+            <tr>
+              <td><kbd>U</kbd></td>
+              <td>Use the new address (redirected links)</td>
+            </tr>
+            <tr>
+              <td><kbd>Z</kbd></td>
+              <td>Undo the last decision</td>
+            </tr>
+            <tr>
+              <td><kbd>Esc</kbd></td>
+              <td>Back to the overview</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          The same keys (<kbd>K</kbd>, <kbd>A</kbd>, <kbd>D</kbd>, <kbd>U</kbd>, <kbd>O</kbd>) work
+          directly in the list of findings. When you are done, <strong>Undo all</strong> reverts
+          every decision of the session.
+        </p>
+        <h3>What is never suggested</h3>
+        <p>
+          Bookmarks in any bookmarks bar, items in pinned folders and bookmarks managed by your
+          organization are protected and never suggested.
+        </p>
+        <h3 id="link-check">Link check (optional)</h3>
+        <p>
+          The link check finds dead links and redirects. It is off until you turn it on in the
+          Cleanup Center or in Settings, and Chrome asks you for permission. It sends a short
+          request to each page, without cookies and without telling the page where the request came
+          from. A link counts as dead only after it failed on two different days; pages that ask for
+          a login, block the request or time out count as “unknown”, not dead.
+        </p>
+
+        <h2 id="overview">Overview</h2>
+        <p>
+          The overview (<kbd>G</kbd> then <kbd>O</kbd>) shows the <strong>order score</strong>, a
+          number from 0 to 100 for how tidy your collection is, and tiles with key figures: total,
+          folders, never opened, stale, duplicates, inbox and dead links. Click a tile to go to it.
+        </p>
+        <p>
+          The <strong>domain explorer</strong> lists every domain with its number of bookmarks.
+          <kbd>Enter</kbd> filters the list by that domain, <kbd>M</kbd> selects all its bookmarks,
+          <kbd>A</kbd> archives and <kbd>D</kbd> moves them to the trash.
+        </p>
+        <figure>
+          <img
+            src="img/5-overview.webp"
+            alt="The overview with order score and domain explorer"
+            loading="lazy"
+            width="1280"
+            height="800"
+          />
+          <figcaption>The overview.</figcaption>
+        </figure>
+
+        <h2 id="safety">Safety net</h2>
+        <ul>
+          <li>
+            <strong>Undo and redo</strong>: <kbd>Ctrl</kbd>+<kbd>Z</kbd> and
+            <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> (or <kbd>Ctrl</kbd>+<kbd>Y</kbd>). At
+            least the last 50 steps are kept, even after you close and reopen Markion. A bulk action
+            counts as one step. If a bookmark was changed elsewhere in the meantime, Markion skips
+            it and tells you instead of overwriting the change.
+          </li>
+          <li>
+            <strong>Trash</strong> (<kbd>G</kbd> then <kbd>T</kbd>): everything you delete in
+            Markion lands here and can be restored to its folder and position for 30 days
+            (adjustable in Settings).
+          </li>
+          <li>
+            <strong>Restore points</strong> (<kbd>G</kbd> then <kbd>R</kbd>): Markion saves a copy
+            of all bookmarks daily when something changed, and always before bulk actions. They are
+            kept for 14 days. You can restore everything or individual folders, and
+            <strong>Save now</strong> creates one right away.
+          </li>
+          <li>
+            <strong>Bulk actions</strong>: deleting more than 10 bookmarks or opening more than 20
+            tabs shows a preview first.
+          </li>
+          <li>
+            <strong>Export</strong> (<kbd>Shift</kbd>+<kbd>E</kbd>): HTML (importable into any
+            browser), JSON (a full Markion backup, restorable in Settings), Markdown or CSV.
+          </li>
+        </ul>
+        <figure>
+          <img
+            src="img/snapshots.webp"
+            alt="The list of restore points"
+            loading="lazy"
+            width="1280"
+            height="800"
+          />
+          <figcaption>Restore points.</figcaption>
+        </figure>
+
+        <h2 id="settings">Settings</h2>
+        <p>
+          Open the settings with <kbd>G</kbd> then <kbd>,</kbd> or <kbd>Ctrl</kbd>+<kbd>,</kbd>.
+        </p>
+        <ul>
+          <li>
+            <strong>Cleanup</strong>: when a bookmark counts as unused or old, from which score it
+            is suggested, how long “Keep” lasts, and the weights of the score. A preview shows how
+            many suggestions you get with the new values. <strong>Reset</strong> restores the
+            defaults.
+          </li>
+          <li>
+            <strong>Inbox, archive and trash</strong>: which folders act as inbox and archive, and
+            how many days deleted items stay in the trash.
+          </li>
+          <li>
+            <strong>Behavior and appearance</strong>: whether <kbd>Enter</kbd> opens a bookmark in
+            the current or a new tab; the effect level (auto, full, reduced, off), and the shortcut
+            that opens Markion.
+          </li>
+          <li>
+            <strong>Privacy</strong>: use your history as a usage signal, and the link check. Both
+            are optional.
+          </li>
+          <li>
+            <strong>Backup and introduction</strong>: download or restore a JSON backup, open the
+            restore points or the introduction.
+          </li>
+          <li>
+            <strong>About Markion</strong>: version, this guide, the privacy policy and the donation
+            link.
+          </li>
+        </ul>
+        <figure>
+          <img
+            src="img/settings.webp"
+            alt="The settings page"
+            loading="lazy"
+            width="1280"
+            height="800"
+          />
+          <figcaption>Settings.</figcaption>
+        </figure>
+
+        <h2 id="shortcuts">Keyboard shortcuts</h2>
+        <p>
+          Every action has a shortcut and an entry in the context menu. In Markion, press
+          <kbd>?</kbd> (or choose <strong>?</strong> → <strong>Shortcuts</strong>) to see this list.
+          “<kbd>G</kbd> then <kbd>C</kbd>” means: press <kbd>G</kbd>, release it, then press
+          <kbd>C</kbd>. On a Mac, use <kbd>⌘</kbd> instead of <kbd>Ctrl</kbd>.
+        </p>
+        <h3>Go to</h3>
+        <table>
+          <tbody>
+            <tr>
+              <td><kbd>G</kbd> then <kbd>A</kbd></td>
+              <td>All bookmarks</td>
+            </tr>
+            <tr>
+              <td><kbd>G</kbd> then <kbd>O</kbd></td>
+              <td>Overview</td>
+            </tr>
+            <tr>
+              <td><kbd>G</kbd> then <kbd>I</kbd></td>
+              <td>Inbox</td>
+            </tr>
+            <tr>
+              <td><kbd>G</kbd> then <kbd>S</kbd></td>
+              <td>Start sorting (sorting assistant)</td>
+            </tr>
+            <tr>
+              <td><kbd>G</kbd> then <kbd>C</kbd></td>
+              <td>Cleanup Center</td>
+            </tr>
+            <tr>
+              <td><kbd>G</kbd> then <kbd>R</kbd></td>
+              <td>Restore points</td>
+            </tr>
+            <tr>
+              <td><kbd>G</kbd> then <kbd>T</kbd></td>
+              <td>Trash</td>
+            </tr>
+            <tr>
+              <td><kbd>G</kbd> then <kbd>,</kbd> · <kbd>Ctrl</kbd>+<kbd>,</kbd></td>
+              <td>Settings</td>
+            </tr>
+            <tr>
+              <td><kbd>G</kbd> then <kbd>W</kbd></td>
+              <td>Show introduction</td>
+            </tr>
+            <tr>
+              <td><kbd>G</kbd> then <kbd>H</kbd></td>
+              <td>Open this user guide</td>
+            </tr>
+            <tr>
+              <td><kbd>?</kbd></td>
+              <td>Keyboard shortcuts</td>
+            </tr>
+            <tr>
+              <td><kbd>Shift</kbd>+<kbd>I</kbd></td>
+              <td>Mark the inbox as reviewed</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>General and view</h3>
+        <table>
+          <tbody>
+            <tr>
+              <td><kbd>Ctrl</kbd>+<kbd>K</kbd></td>
+              <td>Command palette</td>
+            </tr>
+            <tr>
+              <td><kbd>/</kbd></td>
+              <td>Filter the list (search field)</td>
+            </tr>
+            <tr>
+              <td><kbd>Ctrl</kbd>+<kbd>Z</kbd></td>
+              <td>Undo</td>
+            </tr>
+            <tr>
+              <td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> · <kbd>Ctrl</kbd>+<kbd>Y</kbd></td>
+              <td>Redo</td>
+            </tr>
+            <tr>
+              <td><kbd>V</kbd></td>
+              <td>List or cards</td>
+            </tr>
+            <tr>
+              <td><kbd>[</kbd></td>
+              <td>Collapse or expand the sidebar</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Moving around</h3>
+        <table>
+          <tbody>
+            <tr>
+              <td><kbd>↑</kbd> <kbd>↓</kbd> · <kbd>J</kbd> <kbd>K</kbd></td>
+              <td>Move</td>
+            </tr>
+            <tr>
+              <td><kbd>Shift</kbd>+<kbd>↑</kbd> <kbd>Shift</kbd>+<kbd>↓</kbd></td>
+              <td>Extend the selection</td>
+            </tr>
+            <tr>
+              <td><kbd>Space</kbd></td>
+              <td>Select or deselect</td>
+            </tr>
+            <tr>
+              <td><kbd>←</kbd> <kbd>→</kbd></td>
+              <td>Expand and collapse folders in the tree</td>
+            </tr>
+            <tr>
+              <td><kbd>Backspace</kbd></td>
+              <td>Go to the parent folder</td>
+            </tr>
+            <tr>
+              <td><kbd>Esc</kbd></td>
+              <td>Clear the selection, close a panel</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Bookmarks and folders</h3>
+        <table>
+          <tbody>
+            <tr>
+              <td><kbd>Enter</kbd></td>
+              <td>Open</td>
+            </tr>
+            <tr>
+              <td><kbd>Ctrl</kbd>+<kbd>Enter</kbd></td>
+              <td>Open in background tab</td>
+            </tr>
+            <tr>
+              <td><kbd>Shift</kbd>+<kbd>Enter</kbd></td>
+              <td>Open in new window</td>
+            </tr>
+            <tr>
+              <td><kbd>F2</kbd></td>
+              <td>Edit</td>
+            </tr>
+            <tr>
+              <td><kbd>N</kbd></td>
+              <td>New folder</td>
+            </tr>
+            <tr>
+              <td><kbd>Shift</kbd>+<kbd>N</kbd></td>
+              <td>Folder from selection</td>
+            </tr>
+            <tr>
+              <td><kbd>M</kbd></td>
+              <td>Move …</td>
+            </tr>
+            <tr>
+              <td><kbd>Ctrl</kbd>+<kbd>X</kbd></td>
+              <td>Cut</td>
+            </tr>
+            <tr>
+              <td><kbd>Ctrl</kbd>+<kbd>V</kbd></td>
+              <td>Paste</td>
+            </tr>
+            <tr>
+              <td><kbd>Alt</kbd>+<kbd>↑</kbd></td>
+              <td>Move up</td>
+            </tr>
+            <tr>
+              <td><kbd>Alt</kbd>+<kbd>↓</kbd></td>
+              <td>Move down</td>
+            </tr>
+            <tr>
+              <td><kbd>Ctrl</kbd>+<kbd>C</kbd></td>
+              <td>Copy URL</td>
+            </tr>
+            <tr>
+              <td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd></td>
+              <td>Copy as Markdown</td>
+            </tr>
+            <tr>
+              <td><kbd>Shift</kbd>+<kbd>E</kbd></td>
+              <td>Export …</td>
+            </tr>
+            <tr>
+              <td><kbd>Shift</kbd>+<kbd>T</kbd></td>
+              <td>Clean up titles …</td>
+            </tr>
+            <tr>
+              <td><kbd>Shift</kbd>+<kbd>U</kbd></td>
+              <td>Clean up URLs …</td>
+            </tr>
+            <tr>
+              <td><kbd>Ctrl</kbd>+<kbd>A</kbd></td>
+              <td>Select all</td>
+            </tr>
+            <tr>
+              <td><kbd>P</kbd></td>
+              <td>Pin or unpin</td>
+            </tr>
+            <tr>
+              <td><kbd>Shift</kbd>+<kbd>M</kbd></td>
+              <td>Merge folder …</td>
+            </tr>
+            <tr>
+              <td><kbd>Shift</kbd>+<kbd>D</kbd></td>
+              <td>Dissolve folder</td>
+            </tr>
+            <tr>
+              <td><kbd>Shift</kbd>+<kbd>S</kbd></td>
+              <td>Sort permanently …</td>
+            </tr>
+            <tr>
+              <td><kbd>E</kbd></td>
+              <td>Archive</td>
+            </tr>
+            <tr>
+              <td><kbd>Delete</kbd></td>
+              <td>Move to trash</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          The Cleanup Center review and the sorting assistant have their own single-key shortcuts,
+          listed in their sections above.
+        </p>
+
+        <h2 id="privacy">Privacy</h2>
+        <p>
+          Markion has no account, no server, no analytics and no ads. Your bookmarks, usage data,
+          trash, restore points and undo history stay on your device. Markion makes no network
+          requests at all unless you turn on the optional link check. Website icons come from
+          Chrome’s own local cache. Links to this guide, the privacy policy and the donation page
+          open only when you click them.
+        </p>
+        <p>Details are in the <a href="../privacy/">privacy policy</a>.</p>
+
+        <h2 id="faq">FAQ and troubleshooting</h2>
+        <h3>Why does Markion say it cannot be sure a bookmark was never opened?</h3>
+        <p>
+          Chrome only records when you open a bookmark from its bookmarks bar or menu, and only
+          since a certain date per profile. Opens from the address bar do not count. Markion counts
+          its own opens and can use your history if you allow it. For bookmarks older than Chrome’s
+          records, Markion marks suggestions as low confidence. In Settings → Privacy, turning on
+          “Use history as a usage signal” makes this more accurate.
+        </p>
+        <h3>How do I get Chrome’s own bookmark manager back?</h3>
+        <p>
+          Disable or remove Markion in <code>chrome://extensions</code>. Your bookmarks stay
+          unchanged, because Markion always works on Chrome’s bookmarks.
+        </p>
+        <h3>I deleted something by mistake.</h3>
+        <p>
+          Press <kbd>Ctrl</kbd>+<kbd>Z</kbd>, or open the trash (<kbd>G</kbd> then <kbd>T</kbd>) and
+          restore it. For larger mistakes, a restore point (<kbd>G</kbd> then <kbd>R</kbd>) brings
+          back an earlier state of whole folders or the entire collection.
+        </p>
+        <h3>Does Markion sync across devices?</h3>
+        <p>
+          Your bookmarks sync through Chrome as usual. Markion’s own data, such as pins, “keep”
+          decisions, the trash and restore points, stays on each device.
+        </p>
+        <h3>What is the Coffee button?</h3>
+        <p>
+          Markion is free. If it makes your day a little easier, the
+          <strong>Coffee</strong> button at the top opens a page where you can support its
+          development with a small donation. It is entirely optional.
+        </p>
+        <figure class="small">
+          <img
+            src="img/coffee.webp"
+            alt="The Coffee button with its tooltip"
+            loading="lazy"
+            width="980"
+            height="200"
+          />
+        </figure>
+        <h3>Where do I find this guide in the app?</h3>
+        <p>
+          Click <strong>?</strong> at the top right and choose <strong>User guide</strong>, or press
+          <kbd>G</kbd> then <kbd>H</kbd>. It is also linked in Settings → About Markion.
+        </p>
+        <figure class="small">
+          <img
+            src="img/help-menu.webp"
+            alt="The help menu with User guide, Show introduction and Shortcuts"
+            loading="lazy"
+            width="420"
+            height="220"
+          />
+        </figure>
+
+        <footer>
+          Markion · <a href="../privacy/">Privacy policy</a> ·
+          <a href="../support/">Support Markion</a>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
