@@ -309,22 +309,22 @@
         <h2 id="layout">The workspace</h2>
         <figure>
           <img
-            src="img/1-list.webp"
-            alt="Markion with folder tree, list of bookmarks and detail panel"
+            src="img/1-tree.webp"
+            alt="Markion in tree view with expanded folders, a selected bookmark and the detail panel"
             loading="lazy"
             width="1280"
             height="800"
           />
           <figcaption>
-            Folder tree on the left, list in the middle, details on the right.
+            Sidebar on the left, your bookmarks in tree view in the middle, details on the right.
           </figcaption>
         </figure>
         <ul>
           <li>
             <strong>Top bar</strong>: the path of the current folder, the search field, the
-            <strong>Coffee</strong> button (see <a href="#faq">FAQ</a>), list or card view, sorting,
-            view options (columns, density) and the <strong>?</strong> menu with this guide, the
-            introduction and the shortcut overview.
+            <strong>Coffee</strong> button (see <a href="#faq">FAQ</a>), list, tree or card view,
+            sorting, view options (columns, density) and the <strong>?</strong> menu with this
+            guide, the introduction and the shortcut overview.
           </li>
           <li>
             <strong>Left sidebar</strong>: Overview, All bookmarks, Inbox, your folders, and at the
@@ -332,8 +332,18 @@
             change the width.
           </li>
           <li>
-            <strong>List or cards</strong>: switch with <kbd>V</kbd>. Sort by title, domain, date
-            added, last use or staleness score; “Chrome order” keeps the order you see in Chrome.
+            <strong>List, tree or cards</strong>: switch with <kbd>V</kbd>. Sort by title, domain,
+            date added, last use or staleness score; “Chrome order” keeps the order you see in
+            Chrome. Double-click a bookmark to open it in a new tab; Markion stays open.
+          </li>
+          <li>
+            <strong>Tree view</strong>: shows folders with their subfolders and bookmarks in the
+            middle. Click the arrow or the folder icon to expand or collapse a folder, or use
+            <kbd>→</kbd> and <kbd>←</kbd>.
+            <strong>Expand all</strong> (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>↓</kbd>) and
+            <strong>Collapse all</strong>
+            (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>↑</kbd>) are at the top. Drag bookmarks and
+            folders anywhere in the tree, also from the sidebar. Search results stay a flat list.
           </li>
           <li>
             <strong>Detail panel</strong>: opens when you select a bookmark. It shows the folder,
@@ -504,7 +514,9 @@
             over a closed folder opens it after a moment. <kbd>Esc</kbd> cancels the drag.
           </li>
           <li>
-            Press <kbd>M</kbd> to move the selection with the palette: type a folder name and press
+            Press <kbd>M</kbd> to move the selection: a folder tree opens with your recently used
+            folders on top. Use the arrow keys (<kbd>→</kbd>/<kbd>←</kbd> expand and collapse), or
+            type a folder name to see the matches with their parent folders, then press
             <kbd>Enter</kbd>.
           </li>
           <li>
@@ -524,6 +536,18 @@
             folder path.
           </li>
         </ul>
+        <figure>
+          <img
+            src="img/move-picker.webp"
+            alt="Two bookmarks selected, with the folder tree for moving them filtered to the folder Articles"
+            loading="lazy"
+            width="1280"
+            height="800"
+          />
+          <figcaption>
+            Moving with <kbd>M</kbd>: type to find the target folder in the tree.
+          </figcaption>
+        </figure>
         <h3>Edit and create</h3>
         <ul>
           <li><kbd>F2</kbd> renames a bookmark or folder or edits its address.</li>
@@ -699,6 +723,11 @@
             </tr>
           </tbody>
         </table>
+        <p>
+          Hover over a category tile (or reach it with <kbd>Tab</kbd>) to see what its number
+          counts. Duplicates and similar addresses count <em>groups</em>, structure counts
+          <em>findings</em>; dead links and redirects need the optional link check.
+        </p>
         <h3>The staleness score</h3>
         <p>
           Each bookmark gets a score from 0 to 100. It rises the longer you have not used a
@@ -787,7 +816,8 @@
         <p>
           The overview (<kbd>G</kbd> then <kbd>O</kbd>) shows the <strong>order score</strong>, a
           number from 0 to 100 for how tidy your collection is, and tiles with key figures: total,
-          folders, never opened, stale, duplicates, inbox and dead links. Click a tile to go to it.
+          folders, never opened, stale, duplicates, inbox and dead links. Click a tile to go to it;
+          hover over a tile or the score to see what it means and how the score is calculated.
         </p>
         <p>
           The <strong>domain explorer</strong> lists every domain with its number of bookmarks.
@@ -822,7 +852,9 @@
           <li>
             <strong>Restore points</strong> (<kbd>G</kbd> then <kbd>R</kbd>): Markion saves a copy
             of all bookmarks daily when something changed, and always before bulk actions. They are
-            kept for 14 days. You can restore everything or individual folders, and
+            kept for 3 to 14 days (14 by default, adjustable in Settings); the newest one is always
+            kept. You can restore everything or individual folders (<kbd>Enter</kbd>), delete
+            restore points you no longer need (<kbd>Del</kbd>, with undo), and
             <strong>Save now</strong> creates one right away.
           </li>
           <li>
@@ -837,7 +869,7 @@
         <figure>
           <img
             src="img/snapshots.webp"
-            alt="The list of restore points"
+            alt="The list of restore points, an older one selected with its delete and restore buttons"
             loading="lazy"
             width="1280"
             height="800"
@@ -857,8 +889,13 @@
             defaults.
           </li>
           <li>
-            <strong>Inbox, archive and trash</strong>: which folders act as inbox and archive, and
-            how many days deleted items stay in the trash.
+            <strong>Inbox, archive and trash</strong>: which folders act as inbox and archive, how
+            many days deleted items stay in the trash, and how long restore points are kept.
+            Shortening that period asks before deleting older restore points.
+          </li>
+          <li>
+            <strong>Theme</strong>: Dark Side (default), Snow Glow (light), Cyber Phunk or Miami
+            Nights. The change applies right away.
           </li>
           <li>
             <strong>Behavior and appearance</strong>: whether <kbd>Enter</kbd> opens a bookmark in
@@ -881,12 +918,22 @@
         <figure>
           <img
             src="img/settings.webp"
-            alt="The settings page"
+            alt="The settings page with trash and restore point retention and the theme choice"
             loading="lazy"
             width="1280"
             height="800"
           />
-          <figcaption>Settings.</figcaption>
+          <figcaption>Settings: how long items are kept, and the theme.</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="img/themes.webp"
+            alt="The same tree view in the four themes Dark Side, Snow Glow, Cyber Phunk and Miami Nights"
+            loading="lazy"
+            width="1280"
+            height="888"
+          />
+          <figcaption>The four themes.</figcaption>
         </figure>
 
         <h2 id="shortcuts">Keyboard shortcuts</h2>
@@ -970,7 +1017,15 @@
             </tr>
             <tr>
               <td><kbd>V</kbd></td>
-              <td>List or cards</td>
+              <td>List, tree or cards</td>
+            </tr>
+            <tr>
+              <td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>↓</kbd></td>
+              <td>Expand all (tree view)</td>
+            </tr>
+            <tr>
+              <td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>↑</kbd></td>
+              <td>Collapse all (tree view)</td>
             </tr>
             <tr>
               <td><kbd>[</kbd></td>
