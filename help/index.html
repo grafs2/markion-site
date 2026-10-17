@@ -327,7 +327,7 @@
             guide, the introduction and the shortcut overview.
           </li>
           <li>
-            <strong>Left sidebar</strong>: Overview, All bookmarks, Inbox, your folders, and at the
+            <strong>Left sidebar</strong>: All bookmarks, Overview, Inbox, your folders, and at the
             bottom the Cleanup Center, Archive, Restore points, Trash and Settings. Drag its edge to
             change the width.
           </li>
@@ -586,11 +586,32 @@
         <h2 id="inbox">Inbox and sorting assistant</h2>
         <p>
           The inbox collects bookmarks that still need a place: everything lying loose directly in
-          “Other bookmarks”, plus everything you added since you last marked the inbox as reviewed.
-          Bookmarks in the bookmarks bar, pinned items and the archive never land here. Open it with
-          <kbd>G</kbd> then <kbd>I</kbd>; <kbd>Shift</kbd>+<kbd>I</kbd> marks everything as
-          reviewed.
+          “Other bookmarks” (or in the inbox folder you chose in Settings). Open it with
+          <kbd>G</kbd> then <kbd>I</kbd>.
         </p>
+        <h3 id="inbox-why">Why is a bookmark in the inbox?</h3>
+        <p>
+          Chrome saves new bookmarks to “Other bookmarks” unless you pick a folder. Whatever lies
+          loose there has no place yet, so the inbox shows it until you file it. A bookmark you save
+          straight into a folder counts as filed and does not appear. Bookmarks bars, pinned
+          folders, the archive and managed bookmarks never land in the inbox. Each entry shows a
+          small chip with the folder it lies in, and the detail panel says why it is there.
+        </p>
+        <p>What you can do with an entry:</p>
+        <ul>
+          <li>
+            <strong>File it</strong>: with the sorting assistant (below), with <kbd>M</kbd>, or by
+            dragging it onto a folder.
+          </li>
+          <li>
+            <strong>Stays here</strong> (<kbd>H</kbd>, or the map pin icon with a check mark on the
+            row): it stays loose in “Other bookmarks” and leaves the inbox.
+          </li>
+          <li>
+            <strong>Keep all here</strong> (<kbd>Shift</kbd>+<kbd>I</kbd>): every entry in the inbox
+            stays where it is and leaves the inbox at once.
+          </li>
+        </ul>
         <figure>
           <img
             src="img/inbox.webp"
@@ -852,7 +873,7 @@
           <li>
             <strong>Restore points</strong> (<kbd>G</kbd> then <kbd>R</kbd>): Markion saves a copy
             of all bookmarks daily when something changed, and always before bulk actions. They are
-            kept for 3 to 14 days (14 by default, adjustable in Settings); the newest one is always
+            kept for 1 to 14 days (14 by default, adjustable in Settings); the newest one is always
             kept. You can restore everything or individual folders (<kbd>Enter</kbd>), delete
             restore points you no longer need (<kbd>Del</kbd>, with undo), and
             <strong>Save now</strong> creates one right away.
@@ -863,9 +884,26 @@
           </li>
           <li>
             <strong>Export</strong> (<kbd>Shift</kbd>+<kbd>E</kbd>): HTML (importable into any
-            browser), JSON (a full Markion backup, restorable in Settings), Markdown or CSV.
+            browser), JSON (a full Markion backup), Markdown or CSV.
           </li>
         </ul>
+        <h3 id="backup">Backup: export and import</h3>
+        <p>
+          <strong>Export everything</strong> saves one JSON file with all your bookmarks and
+          everything Markion knows about them: settings, theme and view, pinned folders, the
+          archive, the inbox, open counts, “Keep” decisions and link check results.
+          <strong>Import backup</strong> brings it all back exactly as it was, for example on a new
+          computer or after a fresh Chrome profile. Both are in Settings under
+          <strong>Backup (export and import)</strong> and in the command palette
+          (<kbd>Ctrl</kbd>+<kbd>K</kbd>, then type “backup”); they have no shortcut on purpose.
+        </p>
+        <p>
+          Importing replaces your current bookmarks and Markion data. A preview shows the date and
+          size of the backup first. Your current bookmarks go to the trash, and
+          <kbd>Ctrl</kbd>+<kbd>Z</kbd> undoes the whole import, settings included. Restore points
+          and the trash are not part of the file. To import bookmarks from another browser, use
+          Chrome’s own import (<code>chrome://settings/importData</code>).
+        </p>
         <figure>
           <img
             src="img/snapshots.webp"
@@ -889,9 +927,8 @@
             defaults.
           </li>
           <li>
-            <strong>Inbox, archive and trash</strong>: which folders act as inbox and archive, how
-            many days deleted items stay in the trash, and how long restore points are kept.
-            Shortening that period asks before deleting older restore points.
+            <strong>Inbox, archive and trash</strong>: which folders act as inbox and archive, and
+            how many days deleted items stay in the trash.
           </li>
           <li>
             <strong>Theme</strong>: Dark Side (default), Snow Glow (light), Cyber Phunk or Miami
@@ -907,23 +944,25 @@
             are optional.
           </li>
           <li>
-            <strong>Backup and introduction</strong>: download or restore a JSON backup, open the
-            restore points or the introduction.
+            <strong>Backup (export and import)</strong>: export everything, import a backup, export
+            in other formats, open the restore points, and how long restore points are kept (1 to 14
+            days). Shortening that period asks before deleting older restore points. See
+            <a href="#backup">Backup: export and import</a>.
           </li>
           <li>
-            <strong>About Markion</strong>: version, this guide, the privacy policy and the donation
-            link.
+            <strong>About Markion</strong>: version, this guide, the introduction, the privacy
+            policy and the donation link.
           </li>
         </ul>
         <figure>
           <img
             src="img/settings.webp"
-            alt="The settings page with trash and restore point retention and the theme choice"
+            alt="The settings page at the backup section with export, import and restore point retention"
             loading="lazy"
             width="1280"
             height="800"
           />
-          <figcaption>Settings: how long items are kept, and the theme.</figcaption>
+          <figcaption>Settings: backup, export and import.</figcaption>
         </figure>
         <figure>
           <img
@@ -992,7 +1031,7 @@
             </tr>
             <tr>
               <td><kbd>Shift</kbd>+<kbd>I</kbd></td>
-              <td>Mark the inbox as reviewed</td>
+              <td>Keep everything in the inbox where it is</td>
             </tr>
           </tbody>
         </table>
@@ -1148,6 +1187,10 @@
             <tr>
               <td><kbd>Shift</kbd>+<kbd>S</kbd></td>
               <td>Sort permanently …</td>
+            </tr>
+            <tr>
+              <td><kbd>H</kbd></td>
+              <td>Stays here (in the inbox: leave it loose, take it out of the inbox)</td>
             </tr>
             <tr>
               <td><kbd>E</kbd></td>
