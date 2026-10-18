@@ -254,7 +254,6 @@
           <li><a href="#organize">Organizing</a></li>
           <li><a href="#inbox">Inbox and sorting assistant</a></li>
           <li><a href="#cleanup">Cleanup Center</a></li>
-          <li><a href="#overview">Overview</a></li>
           <li><a href="#safety">Safety net</a></li>
           <li><a href="#settings">Settings</a></li>
           <li><a href="#shortcuts">Keyboard shortcuts</a></li>
@@ -322,19 +321,26 @@
         <ul>
           <li>
             <strong>Top bar</strong>: the path of the current folder, the search field, the
-            <strong>Coffee</strong> button (see <a href="#faq">FAQ</a>), list, tree or card view,
-            sorting, view options (columns, density) and the <strong>?</strong> menu with this
-            guide, the introduction and the shortcut overview.
+            <strong>Coffee</strong> button (see <a href="#faq">FAQ</a>) and the
+            <strong>?</strong> menu with this guide, the introduction and the shortcut overview. On
+            pages with a list of bookmarks it also has list, tree or card view, sorting and view
+            options (columns, density).
           </li>
           <li>
-            <strong>Left sidebar</strong>: All bookmarks, Overview, Inbox, your folders, and at the
-            bottom the Cleanup Center, Archive, Restore points, Trash and Settings. Drag its edge to
-            change the width.
+            <strong>Hints</strong>: hover over an icon button, or reach it with <kbd>Tab</kbd>, to
+            see what a click does and its keyboard shortcut. Buttons with a clear label and the
+            small icons inside rows show no hint, so it never covers anything.
+          </li>
+          <li>
+            <strong>Left sidebar</strong>: Cleanup Center (with the order score), All bookmarks,
+            Inbox, your folders, and at the bottom Archive, Restore points, Trash and Settings. Drag
+            its edge to change the width.
           </li>
           <li>
             <strong>List, tree or cards</strong>: switch with <kbd>V</kbd>. Sort by title, domain,
-            date added, last use or staleness score; “Chrome order” keeps the order you see in
-            Chrome. Double-click a bookmark to open it in a new tab; Markion stays open.
+            date added, last use or staleness score; “Manual order” keeps the order you arranged in
+            Chrome. Double-click a bookmark to open it in a new tab; Markion stays open. Cards show
+            a small score ring only on bookmarks Markion would suggest for cleanup.
           </li>
           <li>
             <strong>Tree view</strong>: shows folders with their subfolders and bookmarks in the
@@ -373,10 +379,11 @@
         <h2 id="search">Finding bookmarks</h2>
         <h3>Filter the list</h3>
         <p>
-          Press <kbd>/</kbd> to jump into the search field at the top. The list filters as you type.
-          Search is tolerant of small typos and looks at titles, addresses and folder names. Press
-          <kbd>↓</kbd> to move into the results and <kbd>Enter</kbd> to open the first one.
-          <kbd>Esc</kbd> clears the search.
+          Press <kbd>/</kbd> to jump into the search field at the top. The list filters as you type;
+          on pages without a list (for example the Cleanup Center) typing takes you to All
+          bookmarks. Search is tolerant of small typos and looks at titles, addresses and folder
+          names. Press <kbd>↓</kbd> to move into the results and <kbd>Enter</kbd> to open the first
+          one. <kbd>Esc</kbd> clears the search.
         </p>
         <h3 id="search-syntax">Search syntax</h3>
         <p>
@@ -524,12 +531,14 @@
             <kbd>Alt</kbd>+<kbd>↑</kbd>/<kbd>↓</kbd> moves an item up or down within its folder.
           </li>
           <li>
-            Right-click (or <kbd>Shift</kbd>+<kbd>F10</kbd>) opens the context menu with every
-            action.
+            Right-click (or <kbd>Shift</kbd>+<kbd>F10</kbd>) opens the context menu. “Open in”,
+            “Copy” and “Clean up” open a submenu. Select all is <kbd>Ctrl</kbd>+<kbd>A</kbd>.
           </li>
           <li>
-            Hover over a bookmark or card to reveal two small icons: <strong>Archive</strong> and
-            <strong>Move to trash</strong>. They act on that one item only, with the usual undo.
+            Hover over a bookmark or card (or move to it with the keyboard) to reveal two small
+            icons at the right edge: <strong>Archive</strong> and <strong>Move to trash</strong>.
+            They act on that one item only, with the usual undo. For several selected items, use the
+            bar that appears at the bottom.
           </li>
           <li>
             Hover over a bookmark (row or card) to see its full address, or over the folder column
@@ -624,8 +633,10 @@
         </figure>
         <p>
           The <strong>sorting assistant</strong> (<kbd>G</kbd> then <kbd>S</kbd>) goes through the
-          inbox one card at a time and suggests matching folders. The suggestions are computed on
+          inbox one card at a time and suggests matching folders, best first, each with its main
+          reason (for example “10 more from example.com are here”). The suggestions are computed on
           your device from the domains and words in your existing folders and your recent choices.
+          Click a suggestion or a button on the card, or use the keys:
         </p>
         <table>
           <thead>
@@ -656,7 +667,7 @@
               <td>Later (skip for now)</td>
             </tr>
             <tr>
-              <td><kbd>K</kbd></td>
+              <td><kbd>H</kbd></td>
               <td>Stays here (it leaves the inbox where it is)</td>
             </tr>
             <tr>
@@ -682,9 +693,10 @@
 
         <h2 id="cleanup">Cleanup Center</h2>
         <p>
-          The Cleanup Center (<kbd>G</kbd> then <kbd>C</kbd>, or in the sidebar) finds bookmarks
-          that are worth a second look and explains why. Nothing is deleted without you: you decide
-          for each finding, and deleted items go to the trash.
+          The Cleanup Center (<kbd>G</kbd> then <kbd>C</kbd>, or at the top of the sidebar) finds
+          bookmarks that are worth a second look and explains why. Nothing is deleted without you:
+          you decide for each finding, and deleted items go to the trash. Its first tile,
+          <a href="#overview">Overview</a>, shows how tidy your collection is.
         </p>
         <figure>
           <img
@@ -746,8 +758,10 @@
         </table>
         <p>
           Hover over a category tile (or reach it with <kbd>Tab</kbd>) to see what its number
-          counts. Duplicates and similar addresses count <em>groups</em>, structure counts
-          <em>findings</em>; dead links and redirects need the optional link check.
+          counts. Duplicates and similar addresses count <em>groups</em> (duplicates also show how
+          many entries can go), structure counts <em>findings</em>; dead links and redirects need
+          the optional link check. The number of suggestions at the top counts each bookmark once,
+          even if it appears in several tiles; hover over it to see how it is made up.
         </p>
         <h3>The staleness score</h3>
         <p>
@@ -760,7 +774,7 @@
         <h3>Review</h3>
         <p>
           Press <kbd>Enter</kbd> on a finding (or click <strong>Start review</strong>) to go through
-          the findings one card at a time.
+          the findings one card at a time. Use the keys below or click the buttons on the card.
         </p>
         <figure>
           <img
@@ -810,7 +824,7 @@
             </tr>
             <tr>
               <td><kbd>Esc</kbd></td>
-              <td>Back to the overview</td>
+              <td>Back to the list of findings</td>
             </tr>
           </tbody>
         </table>
@@ -827,18 +841,23 @@
         <h3 id="link-check">Link check (optional)</h3>
         <p>
           The link check finds dead links and redirects. It is off until you turn it on in the
-          Cleanup Center or in Settings, and Chrome asks you for permission. It sends a short
-          request to each page, without cookies and without telling the page where the request came
-          from. A link counts as dead only after it failed on two different days; pages that ask for
-          a login, block the request or time out count as “unknown”, not dead.
+          Cleanup Center (tabs <strong>Dead links</strong> and <strong>Redirected</strong>) or in
+          Settings, and Chrome asks you for permission. Until then both tiles show “—, not checked”.
+          It sends a short request to each page, without cookies and without telling the page where
+          the request came from. A link counts as dead only after it failed on two different days;
+          pages that ask for a login, block the request or time out count as “unknown”, not dead.
         </p>
 
-        <h2 id="overview">Overview</h2>
+        <h3 id="overview">Overview</h3>
         <p>
-          The overview (<kbd>G</kbd> then <kbd>O</kbd>) shows the <strong>order score</strong>, a
-          number from 0 to 100 for how tidy your collection is, and tiles with key figures: total,
-          folders, never opened, stale, duplicates, inbox and dead links. Click a tile to go to it;
-          hover over a tile or the score to see what it means and how the score is calculated.
+          The first tile of the Cleanup Center, <strong>Overview</strong> (<kbd>G</kbd> then
+          <kbd>O</kbd>, or click the score at the top right), shows the
+          <strong>order score</strong>, a number from 0 to 100 for how tidy your collection is, and
+          the key figures total, folders and inbox. The findings themselves (never opened, unused,
+          duplicates, dead links and more) are the other tiles, so each number appears only once.
+          Hover over a tile or the score to see what it counts and how the score is calculated. The
+          “Never opened” tile counts only suggestions; its tooltip also gives the total of all
+          bookmarks never opened, which the search <code>is:never</code> shows.
         </p>
         <p>
           The <strong>domain explorer</strong> lists every domain with its number of bookmarks.
@@ -847,21 +866,21 @@
         </p>
         <p>
           After you jump from a tile or a domain to a list, a <strong>Back</strong> button appears
-          at the top left (“Back to Overview”). It also works with <kbd>Alt</kbd>+<kbd>←</kbd> and
-          the back button of your mouse. The same applies when you jump from the Cleanup Center to a
-          folder or the sorting assistant, from the detail panel to a folder, or from Settings to
-          the restore points. Going somewhere through the sidebar or a <kbd>G</kbd> shortcut starts
-          fresh.
+          at the top left (“Back to Cleanup Center”), and it returns to the Overview tab. It also
+          works with <kbd>Alt</kbd>+<kbd>←</kbd> and the back button of your mouse. The same applies
+          when you jump from the Cleanup Center to a folder or the sorting assistant, from the
+          detail panel to a folder, or from Settings to the restore points. Going somewhere through
+          the sidebar or a <kbd>G</kbd> shortcut starts fresh.
         </p>
         <figure>
           <img
             src="img/5-overview.webp"
-            alt="The overview with order score and domain explorer"
+            alt="The overview tab of the Cleanup Center with order score and domain explorer"
             loading="lazy"
             width="1280"
             height="800"
           />
-          <figcaption>The overview.</figcaption>
+          <figcaption>The overview in the Cleanup Center.</figcaption>
         </figure>
 
         <h2 id="safety">Safety net</h2>
@@ -929,16 +948,6 @@
         </p>
         <ul>
           <li>
-            <strong>Cleanup</strong>: when a bookmark counts as unused or old, from which score it
-            is suggested, how long “Keep” lasts, and the weights of the score. A preview shows how
-            many suggestions you get with the new values. <strong>Reset</strong> restores the
-            defaults.
-          </li>
-          <li>
-            <strong>Inbox, archive and trash</strong>: which folders act as inbox and archive, and
-            how many days deleted items stay in the trash.
-          </li>
-          <li>
             <strong>Theme</strong>: Dark Side (default), Snow Glow (light), Cyber Phunk or Miami
             Nights. The change applies right away.
           </li>
@@ -946,6 +955,17 @@
             <strong>Behavior and appearance</strong>: whether <kbd>Enter</kbd> opens a bookmark in
             the current or a new tab; the effect level (auto, full, reduced, off), and the shortcut
             that opens Markion.
+          </li>
+          <li>
+            <strong>Inbox, archive and trash</strong>: which folders act as inbox and archive, and
+            how many days deleted items stay in the trash.
+          </li>
+          <li>
+            <strong>Cleanup</strong>: when a bookmark counts as unused, from which score it is
+            suggested and how long “Keep” lasts. Under <strong>Advanced</strong>: when a bookmark
+            counts as old, when “never opened” applies, and the weights of the score. A preview
+            shows how many suggestions you get with the new values. <strong>Reset</strong> restores
+            the defaults.
           </li>
           <li>
             <strong>Privacy</strong>: use your history as a usage signal, and the link check. Both
@@ -985,7 +1005,8 @@
 
         <h2 id="shortcuts">Keyboard shortcuts</h2>
         <p>
-          Every action has a shortcut and an entry in the context menu. In Markion, press
+          Every action has a shortcut, and nearly every one has an entry in the context menu. In
+          Markion, press
           <kbd>?</kbd> (or choose <strong>?</strong> → <strong>Shortcuts</strong>) to see this list.
           “<kbd>G</kbd> then <kbd>C</kbd>” means: press <kbd>G</kbd>, release it, then press
           <kbd>C</kbd>. On a Mac, use <kbd>⌘</kbd> instead of <kbd>Ctrl</kbd>.
@@ -995,7 +1016,9 @@
           <tbody>
             <tr>
               <td><kbd>Alt</kbd>+<kbd>←</kbd></td>
-              <td>Back, after a jump from the Overview, Cleanup Center or detail panel</td>
+              <td>
+                Back, after a jump from the Cleanup Center (also its Overview) or the detail panel
+              </td>
             </tr>
             <tr>
               <td><kbd>G</kbd> then <kbd>A</kbd></td>
@@ -1003,7 +1026,7 @@
             </tr>
             <tr>
               <td><kbd>G</kbd> then <kbd>O</kbd></td>
-              <td>Overview</td>
+              <td>Cleanup Center overview</td>
             </tr>
             <tr>
               <td><kbd>G</kbd> then <kbd>I</kbd></td>
@@ -1252,7 +1275,8 @@
         <h3>Does Markion sync across devices?</h3>
         <p>
           Your bookmarks sync through Chrome as usual. Markion’s own data, such as pins, “keep”
-          decisions, the trash and restore points, stays on each device.
+          decisions, the trash and restore points, stays on each device. To take it to another
+          computer, use <a href="#backup">Export everything and Import backup</a>.
         </p>
         <h3>What is the Coffee button?</h3>
         <p>
