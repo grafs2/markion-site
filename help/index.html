@@ -253,6 +253,7 @@
           Markion
         </div>
         <ol>
+          <li><a href="#quickstart">Quick start</a></li>
           <li><a href="#getting-started">Getting started</a></li>
           <li><a href="#layout">The workspace</a></li>
           <li><a href="#search">Finding bookmarks</a></li>
@@ -269,11 +270,113 @@
 
       <main>
         <h1>Markion User Guide</h1>
-        <p class="version">Version 1.4.0</p>
+        <p class="version">Version 1.5.0</p>
         <p class="lead">
           Markion replaces Chrome’s bookmark manager with a fast, keyboard-first workspace. It helps
           you find bookmarks in a heartbeat, reorganize them, clean them up without losing anything
           and keep them in order. Everything runs on your device.
+        </p>
+
+        <h2 id="quickstart">Quick start: Markion in five minutes</h2>
+        <p>
+          Six things to try first. The <a href="#getting-started">introduction</a> on the first
+          start shows each of them on its own page, with a picture that marks where to find it. To
+          see it again, click <strong>?</strong> at the top right and choose
+          <strong>Show introduction</strong>, or press <kbd>G</kbd> then <kbd>W</kbd>.
+        </p>
+        <ol>
+          <li>
+            <strong>Find bookmarks.</strong> Just start typing: the list filters right away, with
+            typos forgiven. <kbd>Ctrl</kbd>+<kbd>K</kbd> opens the command palette for bookmarks,
+            folders and actions. More in <a href="#search">Finding bookmarks</a>.
+            <figure>
+              <img
+                src="img/first-find.webp"
+                alt="The search field at the top of Markion, framed, with search results below"
+                loading="lazy"
+                width="800"
+                height="500"
+              />
+            </figure>
+          </li>
+          <li>
+            <strong>Save a page.</strong> Click the Markion icon in Chrome’s toolbar (or press
+            <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>). The window suggests the folders that fit
+            best; press <kbd>Enter</kbd> or click one. More in
+            <a href="#quick-save">Search and save from the Markion icon</a>.
+            <figure>
+              <img
+                src="img/first-save.webp"
+                alt="The Markion icon in Chrome’s toolbar, framed, with the save window below it"
+                loading="lazy"
+                width="800"
+                height="500"
+              />
+            </figure>
+          </li>
+          <li>
+            <strong>Search from the address bar.</strong> Type <kbd>m</kbd>, a space and your search
+            into Chrome’s address bar. Markion suggests matching bookmarks right there, without
+            opening Markion. More in <a href="#address-bar">Search from Chrome’s address bar</a>.
+            <figure>
+              <img
+                src="img/first-omnibox.webp"
+                alt="Chrome’s address bar with m and a search, framed, with Markion’s suggestions below"
+                loading="lazy"
+                width="800"
+                height="500"
+              />
+            </figure>
+          </li>
+          <li>
+            <strong>File bookmarks.</strong> New bookmarks land in the inbox (<kbd>G</kbd> then
+            <kbd>I</kbd>). Press <kbd>M</kbd> to move one into a folder or <kbd>H</kbd> to leave it
+            where it is; the sorting assistant (<kbd>G</kbd> then <kbd>S</kbd>) suggests a folder
+            for each. More in <a href="#inbox">Inbox and sorting assistant</a>.
+            <figure>
+              <img
+                src="img/first-file.webp"
+                alt="The inbox, with the Inbox entry in the sidebar framed"
+                loading="lazy"
+                width="800"
+                height="500"
+              />
+            </figure>
+          </li>
+          <li>
+            <strong>Clean up.</strong> The Cleanup Center (<kbd>G</kbd> then <kbd>C</kbd>) suggests
+            unused and duplicate bookmarks. You decide for each: keep, archive or delete. Its entry
+            in the sidebar also shows the order score. More in
+            <a href="#cleanup">Cleanup Center</a>.
+            <figure>
+              <img
+                src="img/first-cleanup.webp"
+                alt="The Cleanup Center, with its sidebar entry and the order score framed"
+                loading="lazy"
+                width="800"
+                height="500"
+              />
+            </figure>
+          </li>
+          <li>
+            <strong>Undo anything.</strong> <kbd>Ctrl</kbd>+<kbd>Z</kbd> undoes any action, even
+            after a restart, and every action shows a notice with <strong>Undo</strong>. Deleted
+            bookmarks stay in the trash for 30 days, and restore points bring back a whole earlier
+            state. More in <a href="#safety">Safety net</a>.
+            <figure>
+              <img
+                src="img/first-undo.webp"
+                alt="The notice after deleting a bookmark, with the Undo button framed"
+                loading="lazy"
+                width="800"
+                height="500"
+              />
+            </figure>
+          </li>
+        </ol>
+        <p>
+          In the <a href="#simple-mode">simple mode</a> everything works with the mouse; the
+          introduction then explains the steps without shortcuts.
         </p>
 
         <h2 id="getting-started">Getting started</h2>
@@ -282,12 +385,16 @@
           open it with <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd>, through Chrome’s menu
           “Bookmarks and lists → Bookmark manager”, or with <kbd>Alt</kbd>+<kbd>B</kbd> (you can
           change this shortcut in Settings). If Markion is already open, it switches to that tab
-          instead of opening a second one.
+          instead of opening a second one. The Markion icon in Chrome’s toolbar opens a small window
+          to search your bookmarks or <a href="#quick-save">save the current page</a>.
         </p>
         <p>
-          On the first start, a short introduction creates a first restore point, shows how tidy
-          your collection is and lists the most important shortcuts. You can skip it with
-          <kbd>Esc</kbd>.
+          On the first start, a short introduction lets you choose between the
+          <a href="#simple-mode">simple and the expert mode</a> and creates a first restore point.
+          It then shows how tidy your collection is and explains the order score, walks you through
+          the six <a href="#quickstart">first steps</a> and ends with the most important shortcuts
+          and a link to this guide. <strong>Back</strong> and <strong>Next</strong> move between the
+          pages; <kbd>Esc</kbd> skips the rest.
         </p>
         <div class="note">
           <p>
@@ -512,6 +619,38 @@
           Press <kbd>P</kbd> to pin a bookmark or folder. Pinned items are easy to find with
           <code>is:pinned</code>, and the Cleanup Center never suggests them.
         </p>
+        <h3 id="saved-searches">Saved searches</h3>
+        <p>
+          Searches you use often can live in the sidebar, like smart folders. Type a search, for
+          example <code>site:sharepoint.com used:&lt;30d</code>, and click the star in the search
+          field or press <kbd>Shift</kbd>+<kbd>F</kbd>. Give it a name and press <kbd>Enter</kbd>.
+        </p>
+        <ul>
+          <li>
+            Click a saved search to show all bookmarks that match it; the number next to it is kept
+            up to date.
+          </li>
+          <li>
+            <kbd>G</kbd> then <kbd>1</kbd> to <kbd>9</kbd> opens the first to ninth saved search.
+            The command palette also finds saved searches by name.
+          </li>
+          <li>
+            The <strong>…</strong> menu (or a right-click) renames, edits, moves or removes a saved
+            search. On a focused entry: <kbd>F2</kbd> renames, <kbd>Del</kbd> removes,
+            <kbd>Alt</kbd>+<kbd>↑</kbd>/<kbd>↓</kbd> moves it.
+          </li>
+          <li>Saved searches are part of the backup export.</li>
+        </ul>
+        <h3 id="address-bar">Search from Chrome’s address bar</h3>
+        <p>
+          Type <kbd>m</kbd>, a space and your search into Chrome’s address bar. Markion suggests up
+          to six matching bookmarks with folder and site; all search operators work there too. Pick
+          one with the arrow keys and press <kbd>Enter</kbd> to open it (with <kbd>Alt</kbd>+<kbd
+            >Enter</kbd
+          >
+          in a new tab). Pressing <kbd>Enter</kbd> on your text itself opens Markion with that
+          search.
+        </p>
 
         <h2 id="organize">Organizing</h2>
         <h3>Select and move</h3>
@@ -597,6 +736,51 @@
           Every one of these actions can be undone with <kbd>Ctrl</kbd>+<kbd>Z</kbd>. After each
           action, a message with an <strong>Undo</strong> button stays visible for 8 seconds.
         </p>
+
+        <h3 id="quick-save">Search and save from the Markion icon</h3>
+        <p>
+          Click the Markion icon in Chrome’s toolbar or press
+          <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>. A small window opens with a search field at
+          the top. Start typing to find a bookmark: the matches replace the rest of the window,
+          <kbd>Enter</kbd> opens the selected one, <kbd>Esc</kbd> clears the search.
+        </p>
+        <figure class="small">
+          <img
+            src="img/popup.webp"
+            alt="The Markion window over a web page: search field, title, address with the Full URL option and three suggested folders"
+            loading="lazy"
+            width="380"
+            height="571"
+          />
+        </figure>
+        <p>
+          Below the empty search field you save the current page. The window shows its title
+          (already cleaned up), its address and the three folders that fit best, with the reason.
+          Press <kbd>Alt</kbd>+<kbd>1</kbd>, <kbd>2</kbd> or <kbd>3</kbd>, or <kbd>Enter</kbd> for
+          the first one, and the page is saved there. Right after saving you can undo it.
+        </p>
+        <ul>
+          <li>
+            You can edit the title and the address before saving. If the address has parameters (the
+            part after <code>?</code>), uncheck <strong>Full URL with parameters</strong> to save it
+            without them; check it again to get them back.
+          </li>
+          <li>
+            <strong>Other folder …</strong> shows your folder tree, opened at the best suggestion.
+            Click through it or type to search; matches appear with their parent folders. Arrow keys
+            move, <kbd>→</kbd>/<kbd>←</kbd> open and close a folder, <kbd>Enter</kbd> saves,
+            <kbd>Esc</kbd> goes back to the suggestions. <strong>To the inbox</strong> saves it for
+            later sorting and stays available while you look for a folder.
+          </li>
+          <li>
+            If the page is already saved, the window shows where. The suggestions then move it, and
+            you can delete it or save it again anyway. If only a bookmark with the same address but
+            other parameters exists, the window points it out.
+          </li>
+          <li>
+            On pages that cannot be saved (such as Chrome’s new tab page), the window only searches.
+          </li>
+        </ul>
 
         <h2 id="inbox">Inbox and sorting assistant</h2>
         <p>
@@ -954,8 +1138,15 @@
         </p>
         <ul>
           <li>
-            <strong>Theme</strong>: Dark Side (default), Snow Glow (light), Cyber Phunk or Miami
-            Nights. The change applies right away.
+            <strong>Mode</strong>: <a href="#simple-mode">simple or expert</a>, and the text size
+            (normal, large, extra large) for both modes.
+          </li>
+          <li>
+            <strong>Theme</strong>: 18 color themes, grouped into dark and light: Dark Side
+            (default), Cyber Phunk, Miami Nights, Iceland, Deep Sea, Tangerine Night, Dusk,
+            Blueberry, Navy &amp; Gold, Neon Nights, Synthwave, Green CRT, Amber CRT, and the light
+            Snow Glow, Highland Mist, Glacier, Greenhouse and Cobalt. All meet the contrast
+            requirements. The change applies right away.
           </li>
           <li>
             <strong>Behavior and appearance</strong>: whether <kbd>Enter</kbd> opens a bookmark in
@@ -1008,6 +1199,27 @@
           />
           <figcaption>The four themes.</figcaption>
         </figure>
+
+        <h2 id="simple-mode">Simple and expert mode</h2>
+        <p>
+          The first setting chooses how much Markion shows at once. You can switch any time; nothing
+          is lost.
+        </p>
+        <ul>
+          <li>
+            <strong>Simple</strong>: larger text and rows, only title and site in the list, list or
+            cards, and the main actions (open, rename, move, delete, new folder). No scores and no
+            shortcut hints; buttons explain themselves when you point at them. “Clean up” shows only
+            duplicates and long unused bookmarks, and the undo message stays 15 seconds. Restore
+            points are in the settings.
+          </li>
+          <li><strong>Expert</strong>: everything described in this guide.</li>
+        </ul>
+        <p>
+          The text size (normal, large, extra large) works in both modes; switching to simple sets
+          it to large. All keyboard shortcuts keep working in the simple mode, they are only not
+          shown.
+        </p>
 
         <h2 id="shortcuts">Keyboard shortcuts</h2>
         <p>
@@ -1074,6 +1286,10 @@
               <td><kbd>Shift</kbd>+<kbd>I</kbd></td>
               <td>Keep everything in the inbox where it is</td>
             </tr>
+            <tr>
+              <td><kbd>G</kbd> then <kbd>1</kbd> … <kbd>9</kbd></td>
+              <td>First to ninth saved search</td>
+            </tr>
           </tbody>
         </table>
         <h3>General and view</h3>
@@ -1086,6 +1302,22 @@
             <tr>
               <td><kbd>/</kbd></td>
               <td>Filter the list (search field)</td>
+            </tr>
+            <tr>
+              <td><kbd>Shift</kbd>+<kbd>F</kbd></td>
+              <td>Save the current search in the sidebar</td>
+            </tr>
+            <tr>
+              <td><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd></td>
+              <td>Save the current page (in any tab, changeable in Chrome)</td>
+            </tr>
+            <tr>
+              <td><kbd>Alt</kbd>+<kbd>1</kbd>–<kbd>3</kbd> in the Markion window</td>
+              <td>Save the page in the first, second or third suggested folder</td>
+            </tr>
+            <tr>
+              <td><kbd>m</kbd> <kbd>Space</kbd> in the address bar</td>
+              <td>Search bookmarks from Chrome’s address bar</td>
             </tr>
             <tr>
               <td><kbd>Ctrl</kbd>+<kbd>Z</kbd></td>
